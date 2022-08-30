@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="../CSS_默认样式表/reset.css">
+    <style>
+        #outer{
+            width: 590px;
+            height: 470px;
+            margin: 100px auto ;
+            overflow: hidden;
+            position: relative;
+        }
+        #image{
+            /* width: 4270px; */
+            position: absolute;
+        }
+        #image li{
+            
+            float: left;
+        }
+
+
+        #point{
+            position: absolute;
+            bottom: 20px;
+        }
+        #point a{
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255,.4);
+            margin: 0 5px;
+            border-radius: 50%;
+            background-clip: content-box;
+            border: 3px solid transparent;
+        }
+        #point a:hover{
+            background-color: rgb(255, 255, 255);
+            background-clip: content-box;
+            border: 3px solid rgba(255, 255, 255,.3);
+        }
+
+        
+        #line{
+            position: relative;
+            margin-top: 205px;
+        
+        }
+        #line a{
+            line-height: 60px;
+            height: 60px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.3);
+            font-size: 40px;
+            
+        }
+        #line a:hover{
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        #pre{
+            position: absolute;
+        }
+        #next{
+            position: absolute;
+            right: 0px;
+        }
+
+
+
+    </style>
+    <script>
+        window.onload = function(){
+
+        
+            //图片水平排布
+            var image = document.getElementById("image");
+            var imgArr = document.getElementsByTagName("img");
+            image.style.width = 610 * imgArr.length + "px"; 
+
+            //原点居中
+            var point = document.getElementById("point");
+            var outer = document.getElementById("outer");
+            point.style.left = (outer.offsetWidth - point.offsetWidth)/2 + "px"
+
+            //开始时原点显示位置
+            var list = point.getElementsByTagName("a");
+            var index = 0;
+            list[index].style.backgroundColor = "white";
+
+            var fun = function(){
+                image.style.left = -590*index + "px";
+            };
+
+            
+            //鼠标移入切换图片
+            for(var i = 0; i < list.length; i++){
+                list[i].num = i;
+                list[i].onmousemove = function(){
+                    index = this.num
+                    fun();
+                    stop();
+                    setA() = null;
+                };
+                list[i].onmouseout = function(){
+                    start();
+                };
+            }
+            
+
+            //延时调用
+            function start(){
+                timer = setInterval(function(){
+                index++
+                if(index >= list.length){
+                    index = 0
+                }
+                fun();
+                setA();
+               },2000); 
+            };
+            start();
+
+            function stop(){
+                clearInterval(timer);
+            }
+            
+            //白点变化
+            function setA(){
+            for(var i=0; i<list.length; i++){
+                list[i].style.backgroundColor = "";
+            }
+            list[index].style.backgroundColor = "white";
+            }; 
+
+
+            //点击耳朵切换
+            var pre = document.getElementById("pre");
+            var next = document.getElementById("next");
+        
+            pre.onclick = function(){
+                    index--
+                    if(index < 0){
+                        index = list.length-1;
+                    }
+                    fun();
+                    stop();
+                    setA() = null;
+            };
+        
+            next.onclick = function(){
+                    index++
+                    if(index > list.length-1){
+                        index = 0;
+                    }
+                    fun();
+                    stop();
+                    setA() = null;
+            };
+
+        };
+    </script>
+
+</head>
+<body>
+    <div id="outer">
+        <ul id="image">
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                    <img src="../00_图片/1.avif" alt=""></a>
+            </li>
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/3.jpg" alt=""></a>
+            </li>
+            <li>
+                    <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/5.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/6.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="https://pro.jd.com/mall/active/3ZYfZKGRAhbHzJySpRriJoGWo8v6/index.html?innerAnchor=100037236768&focus=3">
+                <img src="../00_图片/7.avif" alt=""></a>
+            </li>
+        </ul>
+
+    <ul id="point">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </ul>
+
+    <ul id="line">
+        <a id="pre">&lt;</a>
+        <a id="next">&gt;</a>
+    </ul>
+
+    </div>
+    
+</body>
+</html>
