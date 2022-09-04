@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../00_CSS_默认样式表/reset.css" />
+    <link rel="stylesheet" href="./font_3558880_2l6ophpqh4/iconfont.css" />
+  </head>
+
+  <style>
+    body {
+      background-color: rgb(138, 88, 150);
+    }
+    #box1 {
+      background-color: #fff;
+      width: 300px;
+      height: 450px;
+      position: relative;
+      border-radius: 10px;
+      left: 50%;
+      top: 60px;
+      margin-left: -150px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    span {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-weight: bold;
+      font-size: 19px;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .line {
+      list-style: none;
+      position: absolute;
+      top: 50px;
+      width: 300px;
+      height: 4px;
+      background-color: rgba(0, 0, 0, 0.2);
+      background-image: linear-gradient(rgb(208, 208, 208), #fff);
+    }
+    .box2 {
+      position: absolute;
+      top: 60px;
+      left: 30px;
+    }
+    .box3 {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .box3 > li {
+      list-style: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.7);
+      margin: 5px 0;
+    }
+
+    input {
+      /* list-style: none; */
+      display: block;
+      width: 220px;
+      border: 2px solid #e3e3e3;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 12px;
+      padding: 4px;
+      outline: none;
+    }
+    input:focus {
+      outline: none;
+    }
+    .true {
+      border-color: #2ecc71;
+    }
+    .false {
+      border-color: #e74c3c;
+    }
+
+    i {
+      color: #e74c3c;
+      font-size: 12px;
+      transform: scale(0.7);
+      position: absolute;
+      right: 10px;
+      top: 25px;
+      visibility: hidden;
+    }
+    .iconfontFalse i {
+      visibility: visible;
+    }
+    .iconfontTrue i {
+      visibility: visible;
+      color: #2ecc71;
+    }
+
+    small {
+      display: block;
+      width: 100%;
+      color: #e74c3c;
+      position: absolute;
+      font-size: 12px;
+      bottom: -15px;
+      /* visibility: hidden; */
+      transform: scale(0.8);
+      left: -20px;
+    }
+
+    button {
+      position: absolute;
+      width: 100%;
+      border: 2px solid #8e44ad;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 15px;
+      transition: all 0.5s ease;
+      background-color: #fff;
+      color: #8e44ad;
+      top: 320px;
+    }
+    button:hover {
+      color: #fff;
+      background-color: #8e44ad;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var usename = document.getElementById("usename");
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+      var password2 = document.getElementById("password2");
+      var button = document.getElementsByTagName("button");
+      var box3 = document.getElementsByClassName("box3");
+      // var arr = [usename, email, password, password2];
+
+      //第一个输入框
+      function fun1() {
+        op1 = box3[0];
+        op2 = op1.children;
+
+        var usenameReg = /^([a-zA-Z0-9_\u4e00-\u9fa5]{4,16})$/;
+        if (usenameReg.test(usename.value)) {
+          reset();
+          True();
+          op2[4].innerHTML = "";
+        } else if (usename.value == "") {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "请输入用户名";
+        } else {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "四位字符及以上";
+        }
+      }
+
+      //第二个输入框
+      function fun2() {
+        op1 = box3[1];
+        op2 = op1.children;
+
+        var emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        if (emailReg.test(email.value)) {
+          op2[4].innerHTML = "";
+          reset();
+          True();
+        } else if (email.value == "") {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "请输入邮箱";
+        } else {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "邮箱格式错误";
+        }
+      }
+
+      //第三个输入框
+      function fun3() {
+        op1 = box3[2];
+        op2 = op1.children;
+
+        var passwordReg = /^(?=.*[A-z])(?=.*\d)[A-z\d]{8,}$/;
+        if (passwordReg.test(password.value)) {
+          op2[4].innerHTML = "";
+          reset();
+          True();
+        } else if (password.value == "") {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "请输入密码";
+        } else {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "密码为任意字母和数字，至少八个字符";
+        }
+      }
+
+      //第四个输入框
+      function fun4() {
+        op1 = box3[3];
+        op2 = op1.children;
+        var password2Reg = /^(?=.*[A-z])(?=.*\d)[A-z\d]{8,}$/;
+        if (
+          password2.value === password.value &&
+          password2.value != "" &&
+          password2Reg.test(password2.value)
+        ) {
+          op2[4].innerHTML = "";
+          reset();
+          True();
+        } else {
+          op2[4].innerHTML = "";
+          reset();
+          False();
+          op2[4].innerHTML = "与原密码不一致";
+        }
+      }
+
+      function reset() {
+        op2[1].className = "";
+        op2[3].className = "";
+        op2[2].className = "";
+      }
+      function True() {
+        op2[1].className = "true";
+        op2[3].className = "iconfontTrue";
+      }
+      function False() {
+        op2[1].className = "false";
+        op2[2].className = "iconfontFalse";
+      }
+
+      //绑定单击响应
+      button[0].onclick = function () {
+        fun1();
+        fun2();
+        fun3();
+        fun4();
+      };
+    };
+  </script>
+
+  <body>
+    <div id="box1">
+      <span>表单验证</span>
+      <li class="line"></li>
+      <div class="box2">
+        <div class="box3">
+          <li>用户名</li>
+          <input type="text" placeholder="请输入用户名" id="usename" class="" />
+          <a class=""><i class="iconfont">&#xe678;</i></a>
+          <a class=""><i class="iconfont">&#xe64d;</i></a>
+          <small></small>
+        </div>
+        <div class="box3">
+          <li>邮箱</li>
+          <input type="emali" placeholder="请输入邮箱" id="email" class="" />
+          <a class=""><i class="iconfont" id="true">&#xe678;</i></a>
+          <a class=""><i class="iconfont" id="false">&#xe64d;</i></a>
+          <small></small>
+        </div>
+        <div class="box3">
+          <li>密码</li>
+          <input type="text" placeholder="请输入密码" id="password" class="" />
+          <a class=""><i class="iconfont" id="true">&#xe678;</i></a>
+          <a class=""><i class="iconfont" id="false">&#xe64d;</i></a>
+          <small></small>
+        </div>
+        <div class="box3">
+          <li>重复密码</li>
+          <input
+            type="text"
+            placeholder="请再次输入密码"
+            id="password2"
+            class=""
+          />
+          <a class=""><i class="iconfont" id="true">&#xe678;</i></a>
+          <a class=""><i class="iconfont" id="false">&#xe64d;</i></a>
+          <small></small>
+        </div>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>

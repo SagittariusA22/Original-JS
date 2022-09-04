@@ -1,0 +1,65 @@
+{
+  "id": "3558880",
+  "name": "练习",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "31616217",
+      "name": "错误-copy",
+      "font_class": "cuowu-copy",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "15379",
+      "name": "成功",
+      "font_class": "chenggong",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "1137779",
+      "name": "错误",
+      "font_class": "cuowu",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "1259",
+      "name": "位置",
+      "font_class": "weizhi",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "30797724",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "30797725",
+      "name": "向下",
+      "font_class": "xiangxia",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "30797726",
+      "name": "向左",
+      "font_class": "xiangzuo",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "30832232",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    }
+  ]
+}
