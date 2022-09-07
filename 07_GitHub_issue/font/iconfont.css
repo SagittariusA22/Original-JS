@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3628674 */
+  src: url('iconfont.woff2?t=1662280661717') format('woff2'),
+       url('iconfont.woff?t=1662280661717') format('woff'),
+       url('iconfont.ttf?t=1662280661717') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shoucang:before {
+  content: "\e600";
+}
+
+.icon-chakan:before {
+  content: "\e601";
+}
+
+.icon-shezhi:before {
+  content: "\e602";
+}
+
+.icon-shu:before {
+  content: "\e726";
+}
+
+.icon-shangbiao:before {
+  content: "\e623";
+}
+
+.icon-chazhao:before {
+  content: "\e60a";
+}
+
+.icon-yonghu:before {
+  content: "\e8c8";
+}
+
+.icon-milestone:before {
+  content: "\e61b";
+}
+
+.icon-yunhang:before {
+  content: "\ec61";
+}
+
+.icon-xiangmu-AI:before {
+  content: "\e645";
+}
+
+.icon-tishi:before {
+  content: "\e73a";
+}
+
+.icon-quxiantu:before {
+  content: "\e6a3";
+}
+
+.icon-24gl-shieldWarning:before {
+  content: "\e9d6";
+}
+
+.icon-project:before {
+  content: "\e60b";
+}
+
+.icon-wenti:before {
+  content: "\e78d";
+}
+
+.icon-xiaoxizhongxin:before {
+  content: "\e8be";
+}
+
+.icon-label:before {
+  content: "\e667";
+}
+
+.icon-code:before {
+  content: "\e638";
+}
+
+.icon-xialajiantou:before {
+  content: "\e60c";
+}
+
+.icon-repo-forked:before {
+  content: "\e627";
+}
+
+.icon-biaoji:before {
+  content: "\e634";
+}
+
+.icon-line-gitpullrequestgitlaquqingqiu:before {
+  content: "\e6f2";
+}
+
+.icon-github:before {
+  content: "\e677";
+}
+
+.icon-github-fill:before {
+  content: "\e885";
+}
+
+.icon-github1:before {
+  content: "\e64c";
+}
+
+.icon-github2:before {
+  content: "\e609";
+}
+

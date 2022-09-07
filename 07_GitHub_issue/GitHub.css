@@ -1,0 +1,380 @@
+* {
+    text-decoration: none;
+}
+
+/* head-style */
+.head {
+    background-color: rgb(27, 35, 38);
+    height: 60px;
+    position: relative;
+}
+
+.head>a {
+    position: absolute;
+    font-size: 30px;
+    top: 15px;
+    left: 40px;
+    color: #fff;
+}
+
+.head #head-left {
+    position: absolute;
+    left: 90px;
+    top: 19px;
+}
+
+#head-left input {
+    width: 280px;
+    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 5px 0;
+    border-radius: 4px;
+}
+
+#head-left span {
+    color: #fff;
+    position: absolute;
+    left: 265px;
+    font-size: 10px;
+    top: 6px;
+}
+
+#head-left a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 6px;
+}
+
+.head #head-right {
+    position: absolute;
+    right: 30px;
+}
+
+#head-right div {
+    float: left;
+    margin: 0 6px;
+}
+
+#head-right div a {
+    color: #fff;
+}
+
+.information {
+    position: relative;
+    transform: scale(1.2);
+    top: 25px;
+}
+
+.create .a {
+    position: relative;
+    font-size: 30px;
+    top: 15px;
+    font-weight: lighter;
+}
+
+.create .iconfont {
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+}
+
+.user1 img {
+    width: 24px;
+    margin-top: 18px;
+    border-radius: 50%;
+}
+
+.user1 a {
+    position: relative;
+    top: -7px;
+    font-size: 12px;
+}
+
+/* body-style */
+/* body-top */
+#body-top {
+    height: 110px;
+    background-color: rgb(237, 242, 245);
+    position: relative;
+    border-bottom: 1px solid rgb(181, 181, 181);
+}
+
+#top-left {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+#username {
+    font-size: 18px;
+    color: rgb(0, 89, 212);
+}
+
+#public {
+    position: absolute;
+    padding: 1px 3px;
+    background-color: transparent;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 6px;
+    font-size: 10px;
+    margin: 0 10px;
+}
+
+#top-right {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
+#top-right div {
+    float: left;
+    margin: 0 5px;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 5px;
+    padding: 8px 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10px;
+}
+
+#top-right .iconfont {
+    font-size: 12px;
+}
+
+.table3 :last-child,
+.table4 :last-child {
+    position: relative;
+    margin-left: 6px;
+    border-left: 1px solid rgba(188, 188, 188, 0.6);
+    padding: 8px 0;
+    right: -4px;
+    padding-left: 5px;
+}
+
+#top-bottom {
+    position: absolute;
+    top: 76px;
+    left: 20px;
+}
+
+#top-bottom div {
+    padding: 5px 5px;
+    float: left;
+    margin-left: 20px;
+}
+
+#top-bottom :hover {
+    border-radius: 6px;
+    background-color: rgb(228, 228, 228);
+}
+
+/* body-style */
+/* body-center */
+#body-center1 {
+    width: 90%;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 8px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 12px;
+}
+
+#body-center1 a:first-child {
+    font-size: 16px;
+}
+
+#body-center2 {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#label-1 {
+    border-radius: 4px;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    font-size: 15px;
+    padding-left: 10px;
+    background-color: rgb(237, 242, 245);
+}
+
+#label-1 input {
+    width: 720px;
+    height: 30px;
+    border: transparent;
+    background-color: transparent;
+}
+
+#label-1 input:focus {
+    outline: 1px solid rgb(28, 98, 178);
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+#label-1 :nth-child(2) {
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+#label-1 .line {
+    position: absolute;
+    width: 1px;
+    background-color: rgba(188, 188, 188, 0.6);
+    height: 32px;
+    margin-left: -12px;
+}
+
+#label-2 {
+    border-radius: 4px;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    font-size: 15px;
+    line-height: 30px;
+}
+
+#label-2 div {
+    float: left;
+}
+
+#label-2-1 {
+    border-right: 1px solid rgba(188, 188, 188, 0.6);
+    padding: 0 15px;
+    height: 32px;
+}
+
+#label-2-2 {
+    padding: 0 15px;
+}
+
+#label3 {
+    border-radius: 4px;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    padding: 0px 15px;
+    font-size: 15px;
+    line-height: 30px;
+    background-color: rgb(0, 187, 72);
+    color: #fff;
+}
+
+/* body-bottom */
+/* title */
+#body-center3 {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 8px;
+}
+
+#title {
+    position: relative;
+    height: 50px;
+    margin: 0 auto;
+    background-color: rgb(237, 242, 245);
+    line-height: 50px;
+    font-size: 13px;
+    color: #555;
+}
+
+#left {
+    position: absolute;
+}
+
+#left input,
+#left div {
+    float: left;
+    margin-right: 8px;
+}
+
+#left input {
+    margin-left: 12px;
+    margin-top: 19px;
+}
+
+#left .iconfont {
+    position: relative;
+    font-size: 16px;
+    top: 2px;
+}
+
+#right {
+    position: absolute;
+    right: 10px;
+}
+
+#right div {
+    float: left;
+    margin: 0px 12px;
+}
+
+#right .iconfont {
+    font-size: 12px;
+}
+
+/* open */
+.issue-list div {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 8px;
+    height: 60px;
+    margin: 0 auto;
+    line-height: 60px;
+    border-top: 1px solid rgba(188, 188, 188, 0.6);
+}
+
+.issue-list div:hover {
+    background-color: rgb(237, 242, 245);
+}
+
+.issue-list .iconfont {
+    font-weight: lighter;
+}
+
+#open-list {
+    display: block;
+}
+
+#close-list {
+    /* display: none; */
+    display: block;
+}
+
+#alert {
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(188, 188, 188, 0.6);
+    font-size: 12px;
+}
+
+
+/* foot-style */
+.foot {
+    width: 100%;
+    position: relative;
+}
+
+.foot div {
+    position: absolute;
+    padding: 40px 0;
+    font-size: 12px;
+}
+
+.tag1 {
+    left: 50px;
+    top: -4px;
+    color: rgb(63, 63, 63);
+}
+
+.tag2 {
+    width: 100%;
+    text-align: center;
+}
+
+.tag2 a {
+    margin: 0 16px;
+    color: rgb(0, 89, 212);
+}

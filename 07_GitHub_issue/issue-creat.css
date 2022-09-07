@@ -1,0 +1,316 @@
+* {
+    text-decoration: none;
+}
+
+/* head-style */
+.head {
+    background-color: rgb(27, 35, 38);
+    height: 60px;
+    position: relative;
+}
+
+.head>a {
+    position: absolute;
+    font-size: 30px;
+    top: 15px;
+    left: 40px;
+    color: #fff;
+}
+
+.head #head-left {
+    position: absolute;
+    left: 90px;
+    top: 19px;
+}
+
+#head-left input {
+    width: 280px;
+    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 5px 0;
+    border-radius: 4px;
+}
+
+#head-left span {
+    color: #fff;
+    position: absolute;
+    left: 265px;
+    font-size: 10px;
+    top: 6px;
+}
+
+#head-left a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 6px;
+}
+
+.head #head-right {
+    position: absolute;
+    right: 30px;
+}
+
+#head-right div {
+    float: left;
+    margin: 0 6px;
+}
+
+#head-right div a {
+    color: #fff;
+}
+
+.information {
+    position: relative;
+    transform: scale(1.2);
+    top: 25px;
+}
+
+.create .a {
+    position: relative;
+    font-size: 30px;
+    top: 15px;
+    font-weight: lighter;
+}
+
+.create .iconfont {
+    position: relative;
+    font-size: 12px;
+    top: 10px;
+}
+
+.user1 img {
+    width: 24px;
+    margin-top: 18px;
+    border-radius: 50%;
+}
+
+.user1 a {
+    position: relative;
+    top: -7px;
+    font-size: 12px;
+}
+
+/* body-style */
+/* body-top */
+#body-top {
+    height: 110px;
+    background-color: rgb(237, 242, 245);
+    position: relative;
+    border-bottom: 1px solid rgb(181, 181, 181);
+}
+
+#top-left {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+#username {
+    font-size: 18px;
+    color: rgb(0, 89, 212);
+}
+
+#public {
+    position: absolute;
+    padding: 1px 3px;
+    background-color: transparent;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 6px;
+    font-size: 10px;
+    margin: 0 10px;
+}
+
+#top-right {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
+#top-right div {
+    float: left;
+    margin: 0 5px;
+    border: 1px solid rgba(188, 188, 188, 0.6);
+    border-radius: 5px;
+    padding: 8px 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 10px;
+}
+
+#top-right .iconfont {
+    font-size: 12px;
+}
+
+.table3 :last-child,
+.table4 :last-child {
+    position: relative;
+    margin-left: 6px;
+    border-left: 1px solid rgba(188, 188, 188, 0.6);
+    padding: 8px 0;
+    right: -4px;
+    padding-left: 5px;
+}
+
+#top-bottom {
+    position: absolute;
+    top: 76px;
+    left: 20px;
+}
+
+#top-bottom div {
+    padding: 5px 5px;
+    float: left;
+    margin-left: 20px;
+}
+
+#top-bottom :hover {
+    border-radius: 6px;
+    background-color: rgb(228, 228, 228);
+}
+
+/* 创建留言 */
+
+.creatissue {
+    width: 60%;
+    /* background-color: blueviolet; */
+    margin-top: 50px;
+    margin-left: 100px;
+    /* display: none; */
+}
+
+#input1 {
+    width: 100%;
+    height: 40px;
+    display: block;
+    padding: 0 20px;
+    border: 1px solid rgb(170, 170, 170);
+    background-color: rgba(111, 206, 203, 0.2);
+    line-height: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#textarea1 {
+    resize: vertical;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    padding: 20px 20px;
+    width: 100%;
+}
+
+
+/* 留言交流 */
+.issuetalk{
+    display: none;
+}
+#issuelist {
+    width: 60%;
+    margin-left: 100px;
+}
+
+#title{
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: inline-block;
+    color: blue;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+#issuelist div {
+    margin-bottom: 30px;
+}
+
+.delete{
+    position: absolute;
+    right: -30px;
+    top: 10px;
+    
+}
+.issuebox{
+    position: relative;
+}
+
+#issuelist .name {
+    width: 100%;
+    height: 40px;
+    display: block;
+    padding: 0 20px;
+    border: 1px solid rgb(170, 170, 170);
+    background-color: rgba(111, 206, 203, 0.2);
+    line-height: 40px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#issuelist .content {
+    width: 100%;
+    display: inline-block;
+    padding: 20px 20px;
+    border: 1px solid #aaa;
+    border-top: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#write {
+    margin-top: 30px;
+    margin-left: 100px;
+    width: 63%;
+    position: relative;
+
+}
+
+#form {
+    width: 95%;
+    resize: vertical;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+#submit {
+    padding: 5px 20px;
+    position: absolute;
+    right: 0px;
+    bottom: -40px;
+
+}
+
+
+
+
+
+
+
+
+
+/* foot-style */
+.foot {
+    width: 100%;
+    position: relative;
+    margin-top: 300px;
+}
+
+.foot div {
+    position: absolute;
+    padding: 40px 0;
+    font-size: 12px;
+}
+
+.tag1 {
+    left: 50px;
+    top: -4px;
+    color: rgb(63, 63, 63);
+}
+
+.tag2 {
+    width: 100%;
+    text-align: center;
+}
+
+.tag2 a {
+    margin: 0 16px;
+    color: rgb(0, 89, 212);
+}
