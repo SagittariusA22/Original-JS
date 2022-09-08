@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../00_CSS_默认样式表/reset.css" />
+    <style>
+      #box1 {
+        width: 300px;
+        height: 520px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 50px;
+        margin: 50px auto;
+        position: relative;
+      }
+
+      #result {
+        width: 240px;
+        height: 70px;
+        /* background-color: rgba(255, 255, 255, 0.3); */
+        position: absolute;
+        top: 50px;
+        left: 30px;
+        font-size: 60px;
+        color: #fff;
+        line-height: 70px;
+        text-align: right;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 8px 10px;
+        border: 0px;
+        font-size: 25px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      #box2 {
+        position: absolute;
+        left: 20px;
+        bottom: 50px;
+      }
+
+      .delete {
+        width: 104px;
+        border-radius: 20px;
+        background-color: rgb(180, 118, 33);
+      }
+      .reset {
+        background-color: rgb(184, 106, 16);
+      }
+      .operation {
+        background-color: rgb(184, 106, 16);
+      }
+      .equal {
+        background-color: rgb(184, 106, 16);
+      }
+
+      #line1,
+      #line2 {
+        width: 60px;
+        height: 1px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 10px;
+        left: 120px;
+      }
+      #line2 {
+        position: absolute;
+        top: 500px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var Result = document.getElementById("result");
+        var Number = document.getElementsByClassName("number");
+        var Delete = document.getElementsByClassName("delete");
+        var Reset = document.getElementsByClassName("reset");
+        var Operation = document.getElementsByClassName("operation");
+        var Equal = document.getElementsByClassName("equal");
+        var Dot = document.getElementsByClassName("dot");
+
+        var display = "";
+        var noDot = true;
+
+        for (i = 0; i < Number.length; i++) {
+          var number = Number[i];
+          number.onclick = function () {
+            display += this.innerHTML;
+            Result.innerHTML = display;
+          };
+        }
+
+        Reset[0].onclick = function () {
+          display = "";
+          Result.innerHTML = "0";
+          noDot = true;
+        };
+
+        for (j = 0; j < Operation.length; j++) {
+          var operation = Operation[j];
+          operation.onclick = function () {
+            display += this.innerHTML;
+            Result.innerHTML = display;
+            noDot = true;
+          };
+        }
+
+        Dot[0].onclick = function () {
+          if (display == "") {
+            display = "0.";
+            Result.innerHTML = display;
+          } else {
+            if (noDot) {
+              display += ".";
+              Result.innerHTML = display;
+            }
+          }
+          noDot = false;
+        };
+
+        Delete[0].onclick = function () {
+          if (display == "") {
+            return;
+          } else {
+            display = display.toString().slice(0, -1);
+            if (display.toString().length != 0) {
+              Result.innerHTML = display;
+            } else {
+              display = "";
+              Result.innerHTML = "0";
+            }
+          }
+        };
+
+        Equal[0].onclick = function () {
+          display = eval(display);
+          Result.innerHTML = display;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box1">
+      <div id="line1"></div>
+      <div id="line2"></div>
+      <div id="result">0</div>
+      <div id="box2">
+        <button class="delete">X</button>
+        <button class="reset">AC</button>
+        <button class="operation">*</button>
+
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="operation">/</button>
+
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operation">+</button>
+
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operation">-</button>
+
+        <button class="number">0</button>
+        <button class="dot">.</button>
+        <button class="operation">%</button>
+        <button class="equal">=</button>
+      </div>
+    </div>
+  </body>
+</html>
