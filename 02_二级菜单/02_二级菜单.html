@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../00_CSS_默认样式表/reset.css" />
+    <style>
+      .imenu {
+        width: 150px;
+        margin: 100px auto;
+        font-size: 10px;
+      }
+
+      a,
+      span {
+        display: block;
+        width: 120px;
+        padding: 5px 15px;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+      }
+      span {
+        color: rgb(255, 255, 255);
+        font-weight: 600;
+        background-image: url(../02_二级菜单/picture/expanded.gif);
+        background-repeat: no-repeat;
+        background-size: 7px;
+        background-position: 3px center;
+      }
+
+      .imenu div:first-of-type {
+        background-image: url(../02_二级菜单/picture/toptitle.gif);
+      }
+      .imenu div {
+        background-image: url(../02_二级菜单/picture/title.gif);
+        overflow: hidden;
+      }
+
+      a {
+        background-color: #eee;
+        color: #066;
+      }
+      a:hover {
+        background-color: #066;
+        color: #ffffff;
+        background-image: url(../02_二级菜单/picture/linkarrow.gif);
+        background-repeat: no-repeat;
+        background-position: 130px;
+        background-size: 15px;
+      }
+
+      div.collapsed {
+        height: 22px;
+      }
+      div.collapsed span {
+        background-image: url(../02_二级菜单/picture/collapsed.gif);
+      }
+    </style>
+    <script src="../00_封装函数/tools.js"></script>
+    <script>
+      window.onload = function () {
+        var span = document.getElementsByClassName("spanMenu");
+
+        //用变量定义为正在打开的一个
+        var openDiv = span[0].parentNode;
+
+        //for循环，绑定响应函数
+        for (var i = 0; i < span.length; i++) {
+          span[i].onclick = function () {
+            var div = this.parentNode;
+
+            //定义动画函数
+            function moveMenu(obj) {
+              var bagin = obj.offsetHeight;
+
+              //有 类 就减，没有就加上
+              toggleClass(obj, "collapsed");
+
+              var end = obj.offsetHeight;
+
+              obj.style.height = bagin + "px";
+
+              move(obj, "height", end, 10, function () {
+                obj.style.height = "";
+              });
+            }
+
+            //单击时调用函数
+            moveMenu(div);
+
+            //为了实现自动关闭效果，在打开另外一个时，给前一个加上 类
+            //相等就不加类，不相等加类
+            /* if (openDiv != div) {
+              addClass(openDiv, "collapsed");
+            } */
+
+            //为了方便动画效果统一处理，将addClass变成toggleClass ,且只使用加 类 的功能
+            if (openDiv != div && !hasClass(openDiv, "collapsed")) {
+              //关闭上一个时启用动画效果
+              moveMenu(openDiv);
+            }
+
+            //将正在点击打开的div赋值给openDiv
+            openDiv = div;
+          };
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="menu" class="imenu">
+      <div id="menu-list" class="">
+        <span class="spanMenu">在线工具</span>
+        <a href="#">图像优化</a>
+        <a href="#">邮件</a>
+        <a href="#">htaccess密码</a>
+        <a href="#">梯度图像</a>
+        <a href="#">按钮生成器</a>
+      </div>
+      <div id="menu-list" class="collapsed">
+        <span class="spanMenu">支持我们</span>
+        <a href="#">推荐我们</a>
+        <a href="#">链接我们</a>
+        <a href="#">网络资源</a>
+      </div>
+      <div id="menu-list" class="collapsed">
+        <span class="spanMenu">合作伙伴</span>
+        <a href="#">JavaScript工具包</a>
+        <a href="#">CSS驱动</a>
+        <a href="#">CodingForums</a>
+        <a href="#">CSS例子</a>
+      </div>
+      <div id="menu-list" class="collapsed">
+        <span class="spanMenu">测试电流</span>
+        <a href="#">Current or not</a>
+        <a href="#">Current or not</a>
+        <a href="#">Current or not</a>
+        <a href="#">Current or not</a>
+      </div>
+    </div>
+  </body>
+</html>
