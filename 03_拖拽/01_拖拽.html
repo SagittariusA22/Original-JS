@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="../00_CSS_默认样式表/reset.css" />
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-image: url(./3.jpg);
+      background-size: contain;
+    }
+    #box2 {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: blueviolet;
+      top: 200px;
+      left: 200px;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var box1 = document.getElementById("box1");
+
+      box1.onmousedown = function (event) {
+        event = event || window.event;
+        var x = event.clientX - box1.offsetLeft;
+        var y = event.clientY - box1.offsetTop;
+
+        document.onmousemove = function (event) {
+          event = event || window.event;
+
+          var left = event.clientX - x;
+          var top = event.clientY - y;
+
+          box1.style.left = left + "px";
+          box1.style.top = top + "px";
+        };
+      };
+
+      //为了父子之间事件可以冒泡，一个给document 绑定 onmouseup 事件，这样被遮挡时也可以松开鼠标
+      document.onmouseup = function () {
+        document.onmousemove = null;
+      };
+    };
+  </script>
+  <body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+  </body>
+</html>
