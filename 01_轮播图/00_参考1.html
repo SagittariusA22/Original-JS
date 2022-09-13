@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #counter {
+            width: 600px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        #list {
+            width: 3600px;
+            height: 300px;
+            position: absolute;
+            z-index: 1;
+        }
+    
+        #list img {
+            width: 600px;
+            height: 300px;
+            float: left;
+        }
+    
+        .arrow {
+            position: absolute;
+            top: 110px;
+            text-decoration: none;
+            z-index: 2;
+            display: none;
+            width: 40px;
+            height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 39px;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 1);
+            cursor: pointer;
+        }
+    
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    
+        #counter:hover .arrow {
+            display: block;
+        }
+    
+        #pre {
+            left: 20px;
+        }
+    
+        #next {
+            right: 20px;
+        }
+    
+        #list {
+            transition: left 1s;
+        }
+    
+        .list {
+            transition: left 0.1s;
+        }
+    
+        #buttons {
+            position: absolute;
+            height: 10px;
+            width: 120px;
+            left: 250px;
+            bottom: 20px;
+            z-index: 2;
+        }
+    
+        #buttons span {
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    
+        #buttons .on {
+            background: orangered;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+        var counter = document.getElementById("counter");
+        var list = document.getElementById("list");
+        var pre = document.getElementById("pre");
+        var next = document.getElementById("next");
+        var timer;
+    
+        //html与js结合式书写 : 变量名.style.left=数值
+        var nextlist = parseInt(list.style.left);//接收偏移量的值
+        // var index=1;
+        // var buttons=document.getElementById("buttons").getElementById('span');
+    
+        //偏移量的改变
+        function animals(offset) {
+            var newlist = parseInt(list.style.left) + offset;//定义参数随时传递新的偏移量值
+            list.style.left = newlist + 'px';//偏移量需要单位‘像素px’，否则计算机识别不出，图片将不会移动位置
+            //到达最后一张时，点击右耳朵则返回到第一张
+            if (newlist < -3001) {
+                list.style.left = 0 + 'px';
+                list.setAttribute('class', 'list');
+            }
+            //在第一张时，点左耳朵则返回到最后一张
+            if (newlist > 0) {
+                list.style.left = -3000 + 'px';
+                list.setAttribute('class', 'list');
+            }
+        }
+        // 点击左右耳朵触发函数
+        pre.onclick = function () {
+            animals(600)  //点击左边耳朵，图片往左移一张，偏移量加600
+        }
+        next.onclick = function () {
+            animals(-600)   //点击右边耳朵，图片往右移一张，偏移量减600
+        }
+        // 开始定时器
+        function start() {
+            timer = setInterval(function () {
+                next.onclick()
+            }, 2000);
+        }
+        start();
+        // 关闭定时器
+        function stop() {
+            clearInterval(timer);
+        }
+        // 鼠标移出时,开始定时器
+        counter.onmouseleave = start;
+        // 鼠标移入时,关闭定时器
+        counter.onmouseenter = stop;
+    };
+    </script>
+    </head>
+    <body>
+        
+    <div id="counter">
+        <div id="list" style="left:0px;">
+            <!-- 设置初始偏移量为0px -->
+            <img src="../00_图片/2.jpg" alt="1">
+            <img src="../00_图片/3.jpg" alt="2">
+            <img src="../00_图片/4.jpg" alt="3">
+            <img src="../00_图片/5.jpg" alt="4">
+            <img src="../00_图片/6.jpg" alt="5">
+            <img src="../00_图片/7.avif" alt="6">
+        </div>
+        <!-- 图片两边的左右点击切换图片按钮 -->
+        <a href="javascript:;" id="pre" class="arrow">&lt;</a>
+        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    </div>
+    
+    </body>
+</html>
