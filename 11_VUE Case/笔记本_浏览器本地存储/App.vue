@@ -1,0 +1,126 @@
+<template>
+  <div id="root">
+    <div class="todo-container">
+      <div class="todo-wrap">
+        <TopBox :addTodo="addTodo"></TopBox>
+        <center-box
+          :todos="todos"
+          :filterid="filterid"
+          :deleteid="deleteid"
+        ></center-box>
+        <FootBox :todos="todos" :checkAllTodos="checkAllTodos" :clearAll="clearAll"></FootBox>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import CenterBox from "./components/CenterBox.vue";
+import CenterItems from "./components/CenterItems.vue";
+import FootBox from "./components/FootBox.vue";
+import TopBox from "./components/TopBox.vue";
+import { nanoid } from "nanoid";
+import { watch } from 'vue';
+
+export default {
+  name: "App",
+  components: {
+    CenterBox,
+    CenterItems,
+    FootBox,
+    TopBox,
+  },
+  data() {
+    return {
+      todos: JSON.parse(localStorage.getItem("todos")) || [],
+    };
+  },
+  methods:{
+    addTodo(todoObj){
+      this.todos.unshift(todoObj)
+    },
+    filterid(id){
+      this.todos.forEach((todoObj)=>{
+        if(todoObj.id === id) todoObj.done = !todoObj.done;
+      })
+    },
+    deleteid(id){
+      //遍历数组，利用id拿到对应的索引，根据索引删除数组的元素
+      // this.todos.forEach((todoObj)=>{
+      //     var index = this.todos.findIndex(todoObj=>{
+      //       if(todoObj.id === id) return true
+      //     });
+      //     this.todos.splice(index,1);
+      // })
+
+      // 利用过滤器删除 filter
+      this.todos = this.todos.filter(todoObj=>{
+        return todoObj.id !== id
+      });
+    },
+
+    checkAllTodos(done){
+        this.todos.forEach((todoObj)=>{
+          todoObj.done = done
+        })
+    },
+    clearAll(){
+      this.todos = this.todos.filter((todoObj)=>{
+         return !todoObj.done 
+      })
+    }
+  },
+  watch:{
+    todos:{
+      deep:true,
+      handler(value){
+        localStorage.setItem("todos",JSON.stringify(value))
+      }
+    }
+  }
+}
+</script>
+
+<style>
+body {
+  background: #fff;
+}
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #da4f49;
+  border: 1px solid #bd362f;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #bd362f;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
+}
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+</style>
